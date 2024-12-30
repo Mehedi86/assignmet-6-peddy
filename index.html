@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/b9174d2036.js" crossorigin="anonymous"></script>
+    <!-- css file -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+        .lato {
+            font-family: "Lato", serif;
+        }
+    </style>
+</head>
+
+<body class="lato">
+    <!-- header section -->
+    <header class="max-w-[1440px] mx-auto px-2">
+        <!-- navbar -->
+        <nav class="flex justify-between items-center bg-white py-8">
+            <div class="flex items-center gap-2 w-36 md:w-60">
+                <img src="./images/logo.webp" alt="">
+                <h1 class="text-3xl font-bold pb-1">Peddy</h1>
+            </div>
+            <ul class="text-neutral-600 font-medium hidden lg:flex md:gap-12">
+                <li>Home</li>
+                <li>Shop</li>
+                <li>Contact</li>
+            </ul>
+            <div class="dropdown dropdown-end lg:hidden">
+                <div tabindex="0" role="button" class="btn m-1"><i class="fa-solid fa-bars"></i></div>
+                <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li><a>Home</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+            <div class="w-24 md:w-60 lg:flex justify-end hidden">
+                <div class="border border-neutral-400 w-10 h-10 rounded-full flex justify-center pt-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-4">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+        <!-- banner section -->
+        <div>
+            <!-- banner description -->
+            <div class="flex justify-center">
+                <div class="text-center max-w-[690px]">
+                    <p class="text-xl text-neutral-400 font-semibold py-4">Bringing Families Together ❤️‍🔥
+                    </p>
+                    <h1 class="text-5xl font-semibold">Your Path to Adoption<br>Starts Here</h1>
+                    <p class="text-black py-4">It is a long established fact that a reader will be distracted by the
+                        readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                        has a.</p>
+                </div>
+            </div>
+            <!-- banner image -->
+            <div class="flex justify-center py-4">
+                <button onclick="viewMore()" id="view-more" class="btn bg-teal-900 text-white">View More</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="./images/pet.webp" alt="">
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1440px] mx-auto px-2">
+        <!-- modal section -->
+        <section id="details-modal-container">
+
+        </section>
+        <section id="adopt-modal-container">
+
+        </section>
+        <!-- catagories section -->
+        <section class="my-4">
+            <div class="text-center max-w-[650px] mx-auto">
+                <h1 class="text-4xl font-semibold py-2">Adopt Your Best Friend</h1>
+                <p class="py-2">It is a long established fact that a reader will be distracted by the readable content
+                    of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+            <!-- catagories button -->
+            <div id="category-container" class="mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+
+            </div>
+        </section>
+        <!-- best deal section -->
+        <section class="mx-auto flex justify-between items-center">
+            <h4 class="text-xl font-bold">Best Deal For You</h4>
+            <button id="sort-btn" class="btn bg-teal-900 text-white">Sort by price</button>
+        </section>
+        <!-- pet show section -->
+        <section class="text-center">
+            <span id="spinner" class="loading mx-auto loading-bars loading-lg hidden"></span>
+            <div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-4 my-12 gap-4 min-h-[600px] text-start">
+                <div id="pet-container"
+                    class="col-span-3 md:col-span-5 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                </div>
+                <div class="border-2 rounded-xl p-2">
+                    <div id="pet-liked-container"
+                        class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 h-28 gap-2 rounded-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="lg:h-[400px] w-full bg-black text-stone-50 flex items-center">
+        <div class="grid lg:grid-cols-3 w-10/12 mx-auto">
+            <div class="py-4">
+                <div class="flex items-center gap-2 w-36 md:w-60 ">
+                    <img src="./images/logo.webp" alt="">
+                    <h1 class="text-3xl font-bold pb-1 ">Peddy</h1>
+                </div>
+                <p class="py-1">Location: av. Washington 165, NY CA 54003</p>
+                <p class="py-1">Phone: +31 85 964 47 25</p>
+                <p class="py-1">Email: info@yourdomain.com</p>
+                <p class="py-1">Openings hours: 9.00 AM - 5.00 PM</p>
+                <div class="flex items-center gap-2">
+                    <img class="w-10 h-10" src="https://img.icons8.com/?size=48&id=118497&format=png" alt="">
+                    <img class="w-10 h-10" src="https://img.icons8.com/?size=48&id=19318&format=png" alt="">
+                    <img class="w-10 h-10" src="https://img.icons8.com/?size=48&id=8HtzWaaC5y60&format=png" alt="">
+                    <img class="w-10 h-10" src="https://img.icons8.com/?size=48&id=32323&format=png" alt="">
+                </div>
+            </div>
+            <div class="text-gray-200 py-4">
+                <h2 class="mb-4 font-bold">Useful Links</h2>
+                <p class="py-1">Home</p>
+                <p class="py-1">About Us</p>
+                <p class="py-1">Animals</p>
+                <p class="py-1">Foundation</p>
+                <p class="py-1">Contact</p>
+            </div>
+            <div class="font-bold py-4">
+                <h2 class="text-lg">Drop Message</h2>
+                <input type="text" placeholder="Enter your Email" class="input input-bordered w-[300px] bg-neutral-800 text-lg my-4 text-white block" />
+                <button class="btn text-lg font-bold w-[300px] bg-[#0E7A81] text-white border-none block">Subscribe</button>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
